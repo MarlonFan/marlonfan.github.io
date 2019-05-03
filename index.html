@@ -1,20 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
 
 
 
   
 
 
-<html class="theme-next pisces use-motion">
+<html class="theme-next pisces use-motion" lang="zh-CN">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
 
 
 
@@ -25,102 +30,100 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
 
 
   
-  
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
 
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.proxy.ustclug.org/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
-
-
-  <meta name="keywords" content="PHP,JS,Node.js,MarlonFan,无心阁">
-
-
-
-
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1">
-
-
-
-
-
-
-<meta name="description" content="WEB开发.狂热技术控.中二.屠龙少年.">
+  <meta name="description" content="WEB开发.狂热技术控.中二.屠龙少年.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="无心阁">
 <meta property="og:url" content="https://marlon.life/index.html">
 <meta property="og:site_name" content="无心阁">
 <meta property="og:description" content="WEB开发.狂热技术控.中二.屠龙少年.">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="无心阁">
 <meta name="twitter:description" content="WEB开发.狂热技术控.中二.屠龙少年.">
 
 
 
-<script type="text/javascript" id="hexo.configuration">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post"},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: 0,
-      author: '博主'
-    }
+
+
+  
+  
+  <link rel="canonical" href="https://marlon.life/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
   };
 </script>
 
-
-
-
-  <link rel="canonical" href="https://marlon.life/">
-
-  <title> 无心阁 </title>
-</head>
-
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
+  <title>无心阁</title>
   
 
 
@@ -131,99 +134,180 @@
 
 
 
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
 
-  <div class="custom-logo-site-title">
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">无心阁</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">无心阁</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">记录生活、技术中的二三事.</p>
+      
+    
+    
   </div>
-  <p class="site-subtitle">记录生活、技术中的二三事.</p>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
-</div>
+
 
 <nav class="site-nav">
-  
-
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
-            
-            首页
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
-            
-            分类
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
-            
-            标签
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-home menu-item-active">
 
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+
+      
       
     </ul>
   
 
   
+
+  
 </nav>
 
- </div>
+
+
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
+          
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
@@ -231,13 +315,29 @@
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://marlon.life/2018/06/09/about-istio/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Marlon Fan">
+      <meta itemprop="description" content="WEB开发.狂热技术控.中二.屠龙少年.">
+      <meta itemprop="image" content="https://marlon-storage.oss-cn-shenzhen.aliyuncs.com/2019-05-03-9349370.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无心阁">
+    </span>
 
     
       <header class="post-header">
@@ -245,13 +345,9 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2018/06/09/about-istio/" itemprop="url">
-                  关于istio
-                </a>
+                
+                <a href="/2018/06/09/about-istio/" class="post-title-link" itemprop="url">关于istio</a>
               
             
           </h1>
@@ -259,58 +355,70 @@
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-06-09T21:26:00+08:00" content="2018-06-09">
-              2018-06-09
-            </time>
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-09 21:26:00" itemprop="dateCreated datePublished" datetime="2018-06-09T21:26:00+08:00">2018-06-09</time>
+            
+
+            
           </span>
 
           
             <span class="post-category">
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术/" itemprop="url" rel="index"><span itemprop="name">技术</span></a></span>
 
                 
                 
-
               
             </span>
           
 
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2018/06/09/about-istio/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/06/09/about-istio/" itemprop="commentsCount"></span>
-                </a>
-              </span>
             
           
 
           
-
-          
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -323,7 +431,8 @@
 <p>Istio是由Google/IBM/Lyft共同开发的新一代Service Mesh开源项目, 继承了服务的发现,负载,限流和熔断,链路追踪,网关等微服务必不可少的功能,把开发者从不断的维护开发环境,语言SDK中解救出来.</p>
 <p>在研究过程中,笔者发现当前有一些热心的作者,已经翻译出了<a href="http://istio.doczh.cn/" target="_blank" rel="noopener">istio中文手册</a>,但是由于操作API的变更,可能无法让对应配置生效. 但还是非常感谢他们的付出.</p>
 <blockquote>
-<h4 id="在当前时间-ps-2018-06-09-istio发布了0-8版本-同时更换了新一版的alpha3操作API-老一版本的alpha2版本的api已经不建议使用-并且会在下一版本中删除"><a href="#在当前时间-ps-2018-06-09-istio发布了0-8版本-同时更换了新一版的alpha3操作API-老一版本的alpha2版本的api已经不建议使用-并且会在下一版本中删除" class="headerlink" title="在当前时间(ps:2018-06-09), istio发布了0.8版本,  同时更换了新一版的alpha3操作API,老一版本的alpha2版本的api已经不建议使用,并且会在下一版本中删除."></a>在当前时间(ps:2018-06-09), istio发布了<code>0.8</code>版本,  同时更换了新一版的alpha3操作API,老一版本的alpha2版本的api已经不建议使用,并且会在下一版本中删除.</h4><h4 id="官网中的提示"><a href="#官网中的提示" class="headerlink" title="官网中的提示:"></a>官网中的提示:</h4><h4 id="This-task-uses-the-new-v1alpha3-traffic-management-API-The-old-API-has-been-deprecated-and-will-be-removed-in-the-next-Istio-release-If-you-need-to-use-the-old-version-follow-the-docs-here"><a href="#This-task-uses-the-new-v1alpha3-traffic-management-API-The-old-API-has-been-deprecated-and-will-be-removed-in-the-next-Istio-release-If-you-need-to-use-the-old-version-follow-the-docs-here" class="headerlink" title="This task uses the new v1alpha3 traffic management API. The old API has been deprecated and will be removed in the next Istio release. If you need to use the old version, follow the docs here."></a>This task uses the new v1alpha3 traffic management API. The old API has been deprecated and will be removed in the next Istio release. If you need to use the old version, follow the docs here.</h4></blockquote>
+<p>在当前时间(ps:2018-06-09), istio发布了<code>0.8</code>版本,  同时更换了新一版的alpha3操作API,老一版本的alpha2版本的api已经不建议使用,并且会在下一版本中删除.<br>官网中的提示:<br>This task uses the new v1alpha3 traffic management API. The old API has been deprecated and will be removed in the next Istio release. If you need to use the old version, follow the docs here.</p>
+</blockquote>
 <p>这里推荐英文基础不好的同学可以结合两个版本一起来看,比较容易理解.</p>
 <h2 id="初探"><a href="#初探" class="headerlink" title="初探"></a>初探</h2><h3 id="k8s安装"><a href="#k8s安装" class="headerlink" title="k8s安装"></a>k8s安装</h3><p>首先,想要使用istio,我们需要先选择一个与他配合的基础设施. 由于istio对k8s的支持最为强大,所以这里我们选择了k8s为基础设施.</p>
 <p>但是在安装k8s的时候发现这个集群搭起来还是有点费劲的. 想偷懒的同学可以去使用一个叫做<a href="https://github.com/kubernetes/minikube" target="_blank" rel="noopener">minikube</a>的开源软件,可以直接启动一个k8s集群.</p>
@@ -339,15 +448,24 @@
       
     </div>
 
-    <div>
-      
-    </div>
+    
 
-    <div>
+    
+    
+    
+
+    
+
+    
       
-    </div>
+    
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -357,6 +475,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -364,13 +486,29 @@
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://marlon.life/2018/06/02/consul-quick-start/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Marlon Fan">
+      <meta itemprop="description" content="WEB开发.狂热技术控.中二.屠龙少年.">
+      <meta itemprop="image" content="https://marlon-storage.oss-cn-shenzhen.aliyuncs.com/2019-05-03-9349370.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无心阁">
+    </span>
 
     
       <header class="post-header">
@@ -378,13 +516,9 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2018/06/02/consul-quick-start/" itemprop="url">
-                  Consul快览
-                </a>
+                
+                <a href="/2018/06/02/consul-quick-start/" class="post-title-link" itemprop="url">Consul快览</a>
               
             
           </h1>
@@ -392,58 +526,70 @@
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-06-02T21:26:00+08:00" content="2018-06-02">
-              2018-06-02
-            </time>
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-06-02 21:26:00" itemprop="dateCreated datePublished" datetime="2018-06-02T21:26:00+08:00">2018-06-02</time>
+            
+
+            
           </span>
 
           
             <span class="post-category">
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术/" itemprop="url" rel="index"><span itemprop="name">技术</span></a></span>
 
                 
                 
-
               
             </span>
           
 
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2018/06/02/consul-quick-start/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/06/02/consul-quick-start/" itemprop="commentsCount"></span>
-                </a>
-              </span>
             
           
 
           
-
-          
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -485,15 +631,24 @@
       
     </div>
 
-    <div>
-      
-    </div>
+    
 
-    <div>
+    
+    
+    
+
+    
+
+    
       
-    </div>
+    
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -503,6 +658,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -510,13 +669,29 @@
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://marlon.life/2017/12/14/how-to-chain-http-handler/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Marlon Fan">
+      <meta itemprop="description" content="WEB开发.狂热技术控.中二.屠龙少年.">
+      <meta itemprop="image" content="https://marlon-storage.oss-cn-shenzhen.aliyuncs.com/2019-05-03-9349370.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无心阁">
+    </span>
 
     
       <header class="post-header">
@@ -524,13 +699,9 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/12/14/how-to-chain-http-handler/" itemprop="url">
-                  【译】在GO中如何拼接HTTP处理程序
-                </a>
+                
+                <a href="/2017/12/14/how-to-chain-http-handler/" class="post-title-link" itemprop="url">【译】在GO中如何拼接HTTP处理程序</a>
               
             
           </h1>
@@ -538,58 +709,70 @@
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-12-14T00:26:00+08:00" content="2017-12-14">
-              2017-12-14
-            </time>
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-12-14 00:26:00" itemprop="dateCreated datePublished" datetime="2017-12-14T00:26:00+08:00">2017-12-14</time>
+            
+
+            
           </span>
 
           
             <span class="post-category">
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术/" itemprop="url" rel="index"><span itemprop="name">技术</span></a></span>
 
                 
                 
-
               
             </span>
           
 
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/12/14/how-to-chain-http-handler/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/14/how-to-chain-http-handler/" itemprop="commentsCount"></span>
-                </a>
-              </span>
             
           
 
           
-
-          
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -635,15 +818,24 @@
       
     </div>
 
-    <div>
-      
-    </div>
+    
 
-    <div>
+    
+    
+    
+
+    
+
+    
       
-    </div>
+    
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -653,6 +845,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -660,13 +856,29 @@
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://marlon.life/2017/11/28/golang-thread/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Marlon Fan">
+      <meta itemprop="description" content="WEB开发.狂热技术控.中二.屠龙少年.">
+      <meta itemprop="image" content="https://marlon-storage.oss-cn-shenzhen.aliyuncs.com/2019-05-03-9349370.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无心阁">
+    </span>
 
     
       <header class="post-header">
@@ -674,13 +886,9 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/11/28/golang-thread/" itemprop="url">
-                  golang多线程
-                </a>
+                
+                <a href="/2017/11/28/golang-thread/" class="post-title-link" itemprop="url">golang多线程</a>
               
             
           </h1>
@@ -688,58 +896,70 @@
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-11-28T00:00:00+08:00" content="2017-11-28">
-              2017-11-28
-            </time>
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-11-28 00:00:00" itemprop="dateCreated datePublished" datetime="2017-11-28T00:00:00+08:00">2017-11-28</time>
+            
+
+            
           </span>
 
           
             <span class="post-category">
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术/" itemprop="url" rel="index"><span itemprop="name">技术</span></a></span>
 
                 
                 
-
               
             </span>
           
 
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/11/28/golang-thread/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/11/28/golang-thread/" itemprop="commentsCount"></span>
-                </a>
-              </span>
             
           
 
           
-
-          
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -762,15 +982,24 @@
       
     </div>
 
-    <div>
-      
-    </div>
+    
 
-    <div>
+    
+    
+    
+
+    
+
+    
       
-    </div>
+    
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -780,6 +1009,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -787,13 +1020,29 @@
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://marlon.life/2017/03/06/summary-for-2016/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Marlon Fan">
+      <meta itemprop="description" content="WEB开发.狂热技术控.中二.屠龙少年.">
+      <meta itemprop="image" content="https://marlon-storage.oss-cn-shenzhen.aliyuncs.com/2019-05-03-9349370.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无心阁">
+    </span>
 
     
       <header class="post-header">
@@ -801,13 +1050,9 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2017/03/06/summary-for-2016/" itemprop="url">
-                  关于过去一年的总结,以及我的2017
-                </a>
+                
+                <a href="/2017/03/06/summary-for-2016/" class="post-title-link" itemprop="url">关于过去一年的总结,以及我的2017</a>
               
             
           </h1>
@@ -815,58 +1060,70 @@
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-03-06T00:00:00+08:00" content="2017-03-06">
-              2017-03-06
-            </time>
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-03-06 00:00:00" itemprop="dateCreated datePublished" datetime="2017-03-06T00:00:00+08:00">2017-03-06</time>
+            
+
+            
           </span>
 
           
             <span class="post-category">
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术/" itemprop="url" rel="index"><span itemprop="name">技术</span></a></span>
 
                 
                 
-
               
             </span>
           
 
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/03/06/summary-for-2016/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/03/06/summary-for-2016/" itemprop="commentsCount"></span>
-                </a>
-              </span>
             
           
 
           
-
-          
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -903,15 +1160,24 @@
       
     </div>
 
-    <div>
-      
-    </div>
+    
 
-    <div>
+    
+    
+    
+
+    
+
+    
       
-    </div>
+    
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -921,6 +1187,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -928,13 +1198,29 @@
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://marlon.life/2016/09/07/about-laravel-dev-env/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Marlon Fan">
+      <meta itemprop="description" content="WEB开发.狂热技术控.中二.屠龙少年.">
+      <meta itemprop="image" content="https://marlon-storage.oss-cn-shenzhen.aliyuncs.com/2019-05-03-9349370.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无心阁">
+    </span>
 
     
       <header class="post-header">
@@ -942,13 +1228,9 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2016/09/07/about-laravel-dev-env/" itemprop="url">
-                  laravel 环境部署的两个推荐
-                </a>
+                
+                <a href="/2016/09/07/about-laravel-dev-env/" class="post-title-link" itemprop="url">laravel 环境部署的两个推荐</a>
               
             
           </h1>
@@ -956,58 +1238,70 @@
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-07T15:01:00+08:00" content="2016-09-07">
-              2016-09-07
-            </time>
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-09-07 15:01:00" itemprop="dateCreated datePublished" datetime="2016-09-07T15:01:00+08:00">2016-09-07</time>
+            
+
+            
           </span>
 
           
             <span class="post-category">
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术/" itemprop="url" rel="index"><span itemprop="name">技术</span></a></span>
 
                 
                 
-
               
             </span>
           
 
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/07/about-laravel-dev-env/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/07/about-laravel-dev-env/" itemprop="commentsCount"></span>
-                </a>
-              </span>
             
           
 
           
-
-          
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1029,15 +1323,24 @@
       
     </div>
 
-    <div>
-      
-    </div>
+    
 
-    <div>
+    
+    
+    
+
+    
+
+    
       
-    </div>
+    
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -1047,6 +1350,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -1054,13 +1361,29 @@
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://marlon.life/2016/09/07/about-gitlib-ci/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Marlon Fan">
+      <meta itemprop="description" content="WEB开发.狂热技术控.中二.屠龙少年.">
+      <meta itemprop="image" content="https://marlon-storage.oss-cn-shenzhen.aliyuncs.com/2019-05-03-9349370.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无心阁">
+    </span>
 
     
       <header class="post-header">
@@ -1068,13 +1391,9 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2016/09/07/about-gitlib-ci/" itemprop="url">
-                  关于gitlab-ci的一些探索
-                </a>
+                
+                <a href="/2016/09/07/about-gitlib-ci/" class="post-title-link" itemprop="url">关于gitlab-ci的一些探索</a>
               
             
           </h1>
@@ -1082,58 +1401,70 @@
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-07T15:00:00+08:00" content="2016-09-07">
-              2016-09-07
-            </time>
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-09-07 15:00:00" itemprop="dateCreated datePublished" datetime="2016-09-07T15:00:00+08:00">2016-09-07</time>
+            
+
+            
           </span>
 
           
             <span class="post-category">
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术/" itemprop="url" rel="index"><span itemprop="name">技术</span></a></span>
 
                 
                 
-
               
             </span>
           
 
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/09/07/about-gitlib-ci/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/09/07/about-gitlib-ci/" itemprop="commentsCount"></span>
-                </a>
-              </span>
             
           
 
           
-
-          
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1150,7 +1481,7 @@
 </ol>
 <p><code>gitlab-ci server</code>负责调度、触发Runner,以及获取返回结果. 而<code>gitlab-ci-runner</code>则是主要负责来跑自动化<code>CI</code>的一个宿主机子.</p>
 <p>那么我们总结一下流程,其实是这个样子的:</p>
-<p><img src="https://ws4.sinaimg.cn/large/006tNbRwgy1fw6t0mcbouj30f00kgjt5.jpg" alt="2016-07-22_13:48:39.jpg"></p>
+<p><img src="https://marlon-storage.oss-cn-shenzhen.aliyuncs.com/2019-05-03-140450.jpg" alt="2016-07-22_13:48:39.jpg"></p>
 <h2 id="Runner的概念"><a href="#Runner的概念" class="headerlink" title="Runner的概念"></a>Runner的概念</h2><p><code>runner</code>可以想象成一个守护进程,来守护你注册好的<code>service</code>和<code>gitlab-ci</code>绑定. 一个宿主机里的<code>runner</code>可以维护多个不同的<code>service</code>. 而<code>gitlab-ci</code>在收到需要build的请求时,会通知<code>service</code>执行你在<code>.gitlab-ci.yml</code>里面指定好的脚本,然后根据命令行的返回结果来决定这次<code>build</code>的成功还是失败.</p>
 <p><strong>在了解完了这些概念以后我们就可以很轻松的搭建一个runner了.</strong></p>
 <h2 id="GITLAB-CI搭配Runner的使用"><a href="#GITLAB-CI搭配Runner的使用" class="headerlink" title="GITLAB-CI搭配Runner的使用"></a>GITLAB-CI搭配Runner的使用</h2><h4 id="安装Runner"><a href="#安装Runner" class="headerlink" title="安装Runner"></a>安装Runner</h4><ul>
@@ -1174,7 +1505,7 @@
 <p>执行命令<code>gitlab-ci-multi-runner install -n &quot;服务名&quot;</code>,后面的服务名是自己定义的名称，用来后面启动命名使用，与其相对的命令是<code>uninstall</code>.</p>
 <p>启动服务，执行命令<code>gitlab-ci-multi-runner start -n &quot;服务名&quot;</code>,与其相类似的命令有<code>stop</code><br>和<code>restart</code>.</p>
 <p>验证<code>runner</code>，执行<code>gitlab-ci-multi-runner verify</code>,可以看到runner的运行情况.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">root@cloudeye:~# gitlab-ci-multi-runner verify</span><br><span class="line"></span><br><span class="line">aliveINFO[0000] 79bf814a Veryfing runner... is </span><br><span class="line">aliveINFO[0000] 207a4b34 Veryfing runner... is </span><br><span class="line">aliveINFO[0000] 20f849f7 Veryfing runner... is </span><br><span class="line">aliveINFO[0000] 6e07e13a Veryfing runner... is</span><br><span class="line">aliveINFO[0000] 23be6deb Veryfing runner... is </span><br><span class="line">aliveINFO[0000] 4e348964 Veryfing runner... is</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">root@cloudeye:~# gitlab-ci-multi-runner verify</span><br><span class="line"></span><br><span class="line">aliveINFO[0000] 79bf814a Veryfing runner... is</span><br><span class="line">aliveINFO[0000] 207a4b34 Veryfing runner... is</span><br><span class="line">aliveINFO[0000] 20f849f7 Veryfing runner... is</span><br><span class="line">aliveINFO[0000] 6e07e13a Veryfing runner... is</span><br><span class="line">aliveINFO[0000] 23be6deb Veryfing runner... is</span><br><span class="line">aliveINFO[0000] 4e348964 Veryfing runner... is</span><br></pre></td></tr></table></figure>
 <p>启动服务后，可以在刚才的<code>CI runners</code>页面看到已经有<code>runner</code>出现了。</p>
 <h4 id="gitlab-ci-yaml文件"><a href="#gitlab-ci-yaml文件" class="headerlink" title="gitlab-ci.yaml文件"></a>gitlab-ci.yaml文件</h4><p>配置好了<code>runner</code>，要让<code>CI</code>跑起来，还需要在项目根目录放一个<code>.gitlab-ci.yml</code>文件,在这个文件里面可以定制CI的任务,下面是简单的示例文件，更多的用法可以看<a href="http://doc.gitlab.com/ci/yaml/README.html" target="_blank" rel="noopener">官方文档</a></p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">jobName:</span></span><br><span class="line"><span class="attr">  script:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">ls</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">php</span> <span class="string">command.php</span></span><br><span class="line">    <span class="string">...(比喻,使用直接删掉本行)</span></span><br><span class="line"><span class="attr">  only:</span></span><br><span class="line">    <span class="string">develp</span></span><br></pre></td></tr></table></figure>
@@ -1187,15 +1518,24 @@
       
     </div>
 
-    <div>
-      
-    </div>
+    
 
-    <div>
+    
+    
+    
+
+    
+
+    
       
-    </div>
+    
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -1205,6 +1545,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -1212,13 +1556,29 @@
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://marlon.life/2016/07/12/reflection/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Marlon Fan">
+      <meta itemprop="description" content="WEB开发.狂热技术控.中二.屠龙少年.">
+      <meta itemprop="image" content="https://marlon-storage.oss-cn-shenzhen.aliyuncs.com/2019-05-03-9349370.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无心阁">
+    </span>
 
     
       <header class="post-header">
@@ -1226,13 +1586,9 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2016/07/12/reflection/" itemprop="url">
-                  走走停停回头看
-                </a>
+                
+                <a href="/2016/07/12/reflection/" class="post-title-link" itemprop="url">走走停停回头看</a>
               
             
           </h1>
@@ -1240,58 +1596,70 @@
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-12T13:15:00+08:00" content="2016-07-12">
-              2016-07-12
-            </time>
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-07-12 13:15:00" itemprop="dateCreated datePublished" datetime="2016-07-12T13:15:00+08:00">2016-07-12</time>
+            
+
+            
           </span>
 
           
             <span class="post-category">
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
-                  <a href="/categories/随笔/" itemprop="url" rel="index">
-                    <span itemprop="name">随笔</span>
-                  </a>
-                </span>
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/随笔/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a></span>
 
                 
                 
-
               
             </span>
           
 
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/12/reflection/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/07/12/reflection/" itemprop="commentsCount"></span>
-                </a>
-              </span>
             
           
 
           
-
-          
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1309,15 +1677,24 @@
       
     </div>
 
-    <div>
-      
-    </div>
+    
 
-    <div>
+    
+    
+    
+
+    
+
+    
       
-    </div>
+    
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -1327,6 +1704,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -1334,13 +1715,29 @@
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://marlon.life/2016/03/01/about-amy-record-2016-03-01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Marlon Fan">
+      <meta itemprop="description" content="WEB开发.狂热技术控.中二.屠龙少年.">
+      <meta itemprop="image" content="https://marlon-storage.oss-cn-shenzhen.aliyuncs.com/2019-05-03-9349370.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无心阁">
+    </span>
 
     
       <header class="post-header">
@@ -1348,13 +1745,9 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2016/03/01/about-amy-record-2016-03-01/" itemprop="url">
-                  Linda-2016-03-01 学习笔记
-                </a>
+                
+                <a href="/2016/03/01/about-amy-record-2016-03-01/" class="post-title-link" itemprop="url">Linda-2016-03-01 学习笔记</a>
               
             
           </h1>
@@ -1362,58 +1755,70 @@
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-01T21:48:00+08:00" content="2016-03-01">
-              2016-03-01
-            </time>
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-03-01 21:48:00" itemprop="dateCreated datePublished" datetime="2016-03-01T21:48:00+08:00">2016-03-01</time>
+            
+
+            
           </span>
 
           
             <span class="post-category">
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
-                  <a href="/categories/技术/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/技术/" itemprop="url" rel="index"><span itemprop="name">技术</span></a></span>
 
                 
                 
-
               
             </span>
           
 
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/03/01/about-amy-record-2016-03-01/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/03/01/about-amy-record-2016-03-01/" itemprop="commentsCount"></span>
-                </a>
-              </span>
             
           
 
           
-
-          
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1449,15 +1854,24 @@
       
     </div>
 
-    <div>
-      
-    </div>
+    
 
-    <div>
+    
+    
+    
+
+    
+
+    
       
-    </div>
+    
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -1467,6 +1881,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -1474,13 +1892,29 @@
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://marlon.life/2016/03/01/约定/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Marlon Fan">
+      <meta itemprop="description" content="WEB开发.狂热技术控.中二.屠龙少年.">
+      <meta itemprop="image" content="https://marlon-storage.oss-cn-shenzhen.aliyuncs.com/2019-05-03-9349370.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无心阁">
+    </span>
 
     
       <header class="post-header">
@@ -1488,13 +1922,9 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2016/03/01/约定/" itemprop="url">
-                  约定
-                </a>
+                
+                <a href="/2016/03/01/约定/" class="post-title-link" itemprop="url">约定</a>
               
             
           </h1>
@@ -1502,58 +1932,70 @@
 
         <div class="post-meta">
           <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-01T16:02:00+08:00" content="2016-03-01">
-              2016-03-01
-            </time>
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2016-03-01 16:02:00" itemprop="dateCreated datePublished" datetime="2016-03-01T16:02:00+08:00">2016-03-01</time>
+            
+
+            
           </span>
 
           
             <span class="post-category">
-              &nbsp; | &nbsp;
+            
+              <span class="post-meta-divider">|</span>
+            
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
-              <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
-                  <a href="/categories/随笔/" itemprop="url" rel="index">
-                    <span itemprop="name">随笔</span>
-                  </a>
-                </span>
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/随笔/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a></span>
 
                 
                 
-
               
             </span>
           
 
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/03/01/约定/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2016/03/01/约定/" itemprop="commentsCount"></span>
-                </a>
-              </span>
             
           
 
           
-
-          
           
 
           
+
+          
+
+          
+
         </div>
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -1564,22 +2006,31 @@
           
             <p><strong>从梦中醒来时，梦里的情景历历在目，清晰可见。</strong>但在两三分钟内，这些场景就会一点点的湮灭。无论怎么努力，还是很难像记正常的事那样记住梦境，只能眼睁睁的看着它们从记忆里消失，不留痕迹。</p>
 <p>这是每天都在发生的记忆擦除，每个人的记忆都在那一刻失效，但每个人都不介意。<strong>我们不但忘记了梦，我们还忘记了忘记。</strong></p>
-<p><img src="https://ws4.sinaimg.cn/large/006tNbRwgy1fw6sureeg9j30pa108464.jpg" alt="F9E9A49B-0E24-4177-8E32-B734D39EB7DC.png"></p>
+<p><img src="https://marlon-storage.oss-cn-shenzhen.aliyuncs.com/2019-05-03-140529.jpg" alt="F9E9A49B-0E24-4177-8E32-B734D39EB7DC.png"></p>
 
           
         
       
     </div>
 
-    <div>
-      
-    </div>
+    
 
-    <div>
+    
+    
+    
+
+    
+
+    
       
-    </div>
+    
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -1589,6 +2040,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -1597,15 +2052,12 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
 
           </div>
-          
-
-
           
 
         </div>
@@ -1627,96 +2079,199 @@
 
       
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
-        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image" src="https://avatars1.githubusercontent.com/u/9349370?s=460&v=4" alt="Marlon Fan">
-          <p class="site-author-name" itemprop="name">Marlon Fan</p>
-          <p class="site-description motion-element" itemprop="description">WEB开发.狂热技术控.中二.屠龙少年.</p>
-        </div>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">85</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="https://marlon-storage.oss-cn-shenzhen.aliyuncs.com/2019-05-03-9349370.jpeg" alt="Marlon Fan">
+            
+              <p class="site-author-name" itemprop="name">Marlon Fan</p>
+              <div class="site-description motion-element" itemprop="description">WEB开发.狂热技术控.中二.屠龙少年.</div>
           </div>
 
           
-            <div class="site-state-item site-state-categories">
-              <a href="/categories">
-                <span class="site-state-item-count">2</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">84</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">28</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/marlonfan" title="GitHub &rarr; https://github.com/marlonfan" rel="noopener" target="_blank"><i class="fa fa-fw fa-globe"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="http://weibo.com/345210624" title="Weibo &rarr; http://weibo.com/345210624" rel="noopener" target="_blank"><i class="fa fa-fw fa-globe"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.zhihu.com/people/marlonfan" title="知乎 &rarr; https://www.zhihu.com/people/marlonfan" rel="noopener" target="_blank"><i class="fa fa-fw fa-globe"></i>知乎</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.instagram.com/marlon.fan/" title="Instagram &rarr; https://www.instagram.com/marlon.fan/" rel="noopener" target="_blank"><i class="fa fa-fw fa-globe"></i>Instagram</a>
+                </span>
+              
             </div>
           
 
           
-            <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">28</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
+
+          
           
 
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
           
             
-              <span class="links-of-author-item">
-                <a href="https://github.com/marlonfan" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://weibo.com/345210624" target="_blank" title="Weibo">
-                  
-                    <i class="fa fa-fw fa-weibo"></i>
-                  
-                  Weibo
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="https://www.zhihu.com/people/marlonfan" target="_blank" title="知乎">
-                  
-                    <i class="fa fa-fw fa-globe"></i>
-                  
-                  知乎
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="https://www.instagram.com/marlon.fan/" target="_blank" title="Instagram">
-                  
-                    <i class="fa fa-fw fa-instagram"></i>
-                  
-                  Instagram
-                </a>
-              </span>
-            
           
+          
+
         </div>
+      </div>
 
-        
-        
-
-        
-        
-
-      </section>
+      
 
       
 
     </div>
   </aside>
+  
 
 
         
@@ -1725,41 +2280,61 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">
-  
-  &copy;  2012 - 
-  <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
+        <div class="copyright">&copy; 2012 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Marlon Fan</span>
+
+  
+
+  
 </div>
 
-<div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
-</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
-  </a>
-</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.1.1</div>
+
+
+
 
         
+
+
+
+
+
+
+
 
         
       </div>
     </footer>
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
   </div>
 
   
 
-<script type="text/javascript">
+<script>
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -1773,86 +2348,99 @@
 
 
 
-  
 
 
 
-  
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
-  
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+
+
+
 
 
 
   
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
-
-
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
-
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
 
   
 
 
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.1"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.1"></script>
+
+
 
   
 
-    <script type="text/javascript">
-      var disqus_shortname = 'marlonfan';
-      var disqus_identifier = 'index.html';
-      var disqus_title = "";
-      var disqus_url = '';
+  
 
-      function run_disqus_script(disqus_script){
-        var dsq = document.createElement('script');
-        dsq.type = 'text/javascript';
-        dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      }
 
-      run_disqus_script('count.js');
-      
-    </script>
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+
+
+
+
+
+
   
 
 
 
 
   
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
   
 
   
