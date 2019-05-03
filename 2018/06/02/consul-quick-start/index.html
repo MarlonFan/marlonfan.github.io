@@ -1,0 +1,701 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.proxy.ustclug.org/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="golang,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1">
+
+
+
+
+
+
+<meta name="description" content="介绍因为团队目前正在考虑服务化部署,所以了解下相关的技术堆栈。 作为微服务架构里重中之重的服务发现和集群一致性KV存储当然是首先要了解的. 现在市面上有3种比较常见的服务发现服务:  zookeeper etcd consul  在综合团队内部情况下,决定采用consul作为我们的服务发现中心和配置管理. Consul快速入门功能 服务发现 Key-&amp;gt;Value存储 分布式锁 Watch变更">
+<meta name="keywords" content="golang">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Consul快览">
+<meta property="og:url" content="https://tfan.net/2018/06/02/consul-quick-start/index.html">
+<meta property="og:site_name" content="无心阁">
+<meta property="og:description" content="介绍因为团队目前正在考虑服务化部署,所以了解下相关的技术堆栈。 作为微服务架构里重中之重的服务发现和集群一致性KV存储当然是首先要了解的. 现在市面上有3种比较常见的服务发现服务:  zookeeper etcd consul  在综合团队内部情况下,决定采用consul作为我们的服务发现中心和配置管理. Consul快速入门功能 服务发现 Key-&amp;gt;Value存储 分布式锁 Watch变更">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-03T12:15:49.568Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Consul快览">
+<meta name="twitter:description" content="介绍因为团队目前正在考虑服务化部署,所以了解下相关的技术堆栈。 作为微服务架构里重中之重的服务发现和集群一致性KV存储当然是首先要了解的. 现在市面上有3种比较常见的服务发现服务:  zookeeper etcd consul  在综合团队内部情况下,决定采用consul作为我们的服务发现中心和配置管理. Consul快速入门功能 服务发现 Key-&amp;gt;Value存储 分布式锁 Watch变更">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://tfan.net/2018/06/02/consul-quick-start/">
+
+  <title> Consul快览 | 无心阁 </title>
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">无心阁</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">记录生活、技术中的二三事.</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Consul快览
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-06-02T21:26:00+08:00" content="2018-06-02">
+              2018-06-02
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2018/06/02/consul-quick-start/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/06/02/consul-quick-start/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>因为团队目前正在考虑服务化部署,所以了解下相关的技术堆栈。 作为微服务架构里重中之重的<code>服务发现</code>和<code>集群一致性KV存储</code>当然是首先要了解的.</p>
+<p>现在市面上有3种比较常见的服务发现服务:</p>
+<ul>
+<li><a href="https://zookeeper.apache.org/" target="_blank" rel="noopener">zookeeper</a></li>
+<li><a href="https://github.com/coreos/etcd" target="_blank" rel="noopener">etcd</a></li>
+<li><a href="https://www.consul.io/" target="_blank" rel="noopener">consul</a></li>
+</ul>
+<p>在综合团队内部情况下,决定采用<code>consul</code>作为我们的服务发现中心和配置管理.</p>
+<h2 id="Consul快速入门"><a href="#Consul快速入门" class="headerlink" title="Consul快速入门"></a>Consul快速入门</h2><h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><ol>
+<li>服务发现</li>
+<li>Key-&gt;Value存储</li>
+<li>分布式锁</li>
+<li>Watch变更</li>
+<li>属于颜控的一个好看的UI</li>
+</ol>
+<h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><p>建议使用docker快速部署:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">###</span><br><span class="line"># -d 后台运行</span><br><span class="line"># --name 为容器起一个名字</span><br><span class="line"># -p 映射docker容器内端口和宿主机器</span><br><span class="line"># -server consul的命令,意思是以server端启动,ps: 还有个client端</span><br><span class="line"># -ui 可以打开一个自带的UI可视化界面</span><br><span class="line"># -bootstrap-expect 最小启动节点数量</span><br><span class="line">###</span><br><span class="line"></span><br><span class="line">docker run -d --name=consul -p 8500:8500/tcp consul agent -server -ui -bootstrap-expect=1 -client=0.0.0.0</span><br></pre></td></tr></table></figure></p>
+<h3 id="golang使用"><a href="#golang使用" class="headerlink" title="golang使用"></a>golang使用</h3><p>这里提供一个golang的官方sdk: <a href="https://github.com/hashicorp/consul/api" target="_blank" rel="noopener">sdk</a></p>
+<p>官方已经有一个详细的 example, 这里就不多说了,但是研究Watch的时候发现有一点坑. Api模块里并没有Watch相关功能操作,所以看了下consul的源码,在consul/watch目录下看到了大概的实现</p>
+<p>consul 的 watch有几种实现方式</p>
+<ol>
+<li>变更时执行shell脚本</li>
+<li>变更时通过http触发</li>
+<li>在源码中发现有一个hook接口,挂在handler上就会自动执行</li>
+</ol>
+<p>这里因为避免部署上的操作,所以在应用启动中代码直接启动Watch. 下面是consul相关使用的实例代码:</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"encoding/json"</span></span><br><span class="line">    <span class="string">"flag"</span></span><br><span class="line">    <span class="string">"fmt"</span></span><br><span class="line">    <span class="string">"log"</span></span><br><span class="line">    <span class="string">"net/http"</span></span><br><span class="line">    <span class="string">"os"</span></span><br><span class="line">    <span class="string">"os/signal"</span></span><br><span class="line"></span><br><span class="line">    <span class="string">"github.com/hashicorp/consul/api"</span> <span class="comment">// 操作consul的api模块</span></span><br><span class="line">    <span class="string">"github.com/hashicorp/consul/watch"</span> <span class="comment">// api中未提及的watch模块</span></span><br><span class="line">    <span class="string">"github.com/marlonfan/go-library/util"</span> <span class="comment">// 一个自定义的常用的package,在github可以找到</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> consulClient *api.Client</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> (</span><br><span class="line">    serverID   = flag.String(<span class="string">"server-id"</span>, <span class="string">"nomarl"</span>, <span class="string">"service's id"</span>)</span><br><span class="line">    serverPort = flag.String(<span class="string">"port"</span>, <span class="string">":8080"</span>, <span class="string">"service's port"</span>)</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">init</span><span class="params">()</span></span> &#123;</span><br><span class="line">    flag.Parse()</span><br><span class="line">    <span class="keyword">var</span> err error</span><br><span class="line">    consulClient, err = api.NewClient(api.DefaultConfig())</span><br><span class="line">    util.CheckError(err)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">go</span> registorService()</span><br><span class="line">    <span class="keyword">go</span> waitToUnRegistService()</span><br><span class="line">    <span class="keyword">go</span> startWatch()</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 健康检查</span></span><br><span class="line">    http.HandleFunc(<span class="string">"/status"</span>, <span class="function"><span class="keyword">func</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">        fmt.Println(<span class="string">"check status."</span>)</span><br><span class="line">        fmt.Fprint(w, <span class="string">"status ok!"</span>)</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    fmt.Println(<span class="string">"start listen..."</span>)</span><br><span class="line">    err := http.ListenAndServe(*serverPort, <span class="literal">nil</span>)</span><br><span class="line">    util.CheckError(err)</span><br><span class="line">    <span class="keyword">select</span> &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// watch功能实现</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">startWatch</span><span class="params">()</span></span> &#123;</span><br><span class="line">    watchConfig := <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">interface</span>&#123;&#125;)</span><br><span class="line"></span><br><span class="line">    watchConfig[<span class="string">"type"</span>] = <span class="string">"service"</span></span><br><span class="line">    watchConfig[<span class="string">"service"</span>] = <span class="string">"redis"</span></span><br><span class="line">    watchConfig[<span class="string">"handler_type"</span>] = <span class="string">"script"</span></span><br><span class="line">    watchPlan, err := watch.Parse(watchConfig)</span><br><span class="line">    util.CheckError(err)</span><br><span class="line">    watchPlan.Handler = <span class="function"><span class="keyword">func</span><span class="params">(lastIndex <span class="keyword">uint64</span>, result <span class="keyword">interface</span>&#123;&#125;)</span></span> &#123;</span><br><span class="line">        services := result.([]*api.ServiceEntry)</span><br><span class="line">        str, err := json.Marshal(services)</span><br><span class="line">        util.CheckError(err)</span><br><span class="line">        fmt.Println(<span class="keyword">string</span>(str))</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> err := watchPlan.Run(<span class="string">"192.168.2.159:8500"</span>); err != <span class="literal">nil</span> &#123;</span><br><span class="line">        log.Fatalf(<span class="string">"start watch error, error message: %s"</span>, err.Error())</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 注册服务实现</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">registorService</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> err error</span><br><span class="line">    client, err := api.NewClient(api.DefaultConfig())</span><br><span class="line">    util.CheckError(err)</span><br><span class="line"></span><br><span class="line">    service := &amp;api.AgentServiceRegistration&#123;</span><br><span class="line">        ID:   *serverID,</span><br><span class="line">        Name: <span class="string">"redis"</span>,</span><br><span class="line">        Port: <span class="number">12311</span>,</span><br><span class="line">        Check: &amp;api.AgentServiceCheck&#123;</span><br><span class="line">            HTTP:     <span class="string">"http://192.168.2.159"</span> + *serverPort + <span class="string">"/status"</span>,</span><br><span class="line">            Interval: <span class="string">"1s"</span>,</span><br><span class="line">            Timeout:  <span class="string">"1s"</span>,</span><br><span class="line">        &#125;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> err = client.Agent().ServiceRegister(service); err != <span class="literal">nil</span> &#123;</span><br><span class="line">        log.Fatalf(<span class="string">"registor failed, error message: %s"</span>, err.Error())</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 收到退出信号后的服务下线处理,如果不做,服务会显示健康检查失败,同时已经下线的服务还会在控制面板看到</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">waitToUnRegistService</span><span class="params">()</span></span> &#123;</span><br><span class="line">    quit := <span class="built_in">make</span>(<span class="keyword">chan</span> os.Signal, <span class="number">1</span>)</span><br><span class="line">    signal.Notify(quit, os.Interrupt, os.Kill)</span><br><span class="line">    &lt;-quit</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> consulClient == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> err := consulClient.Agent().ServiceDeregister(*serverID); err != <span class="literal">nil</span> &#123;</span><br><span class="line">        log.Fatal(err)</span><br><span class="line">    &#125;</span><br><span class="line">    os.Exit(<span class="number">0</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>全文完!</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/golang/" rel="tag">#golang</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/14/how-to-chain-http-handler/" rel="next" title="【译】在GO中如何拼接HTTP处理程序">
+                <i class="fa fa-chevron-left"></i> 【译】在GO中如何拼接HTTP处理程序
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/09/about-istio/" rel="prev" title="关于istio">
+                关于istio <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="https://ws3.sinaimg.cn/large/006tNbRwgy1fw6se4chokj30b40b4mxs.jpg" alt="Marlon Fan">
+          <p class="site-author-name" itemprop="name">Marlon Fan</p>
+          <p class="site-description motion-element" itemprop="description">WEB开发.狂热技术控.中二.屠龙少年.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">85</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/marlonfan" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/345210624" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/marlonfan" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.instagram.com/marlon.fan/" target="_blank" title="Instagram">
+                  
+                    <i class="fa fa-fw fa-instagram"></i>
+                  
+                  Instagram
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Consul快速入门"><span class="nav-number">2.</span> <span class="nav-text">Consul快速入门</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#功能"><span class="nav-number">2.1.</span> <span class="nav-text">功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境搭建"><span class="nav-number">2.2.</span> <span class="nav-text">环境搭建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#golang使用"><span class="nav-number">2.3.</span> <span class="nav-text">golang使用</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2012 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Marlon Fan</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'marlonfan';
+      var disqus_identifier = '2018/06/02/consul-quick-start/';
+      var disqus_title = "Consul快览";
+      var disqus_url = 'https://tfan.net/2018/06/02/consul-quick-start/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

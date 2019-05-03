@@ -1,0 +1,686 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.proxy.ustclug.org/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="php,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1">
+
+
+
+
+
+
+<meta name="description" content="1.首先看了PHP的源码API函数，对于许多口水仗的争论一笑而过，只是停留在脚本级别上的什么效率，安全。。。之争完全就是无稽之谈，没有深入理解API，所有的争论都是臆测和不科学的态度。你做了吗？ 2.不再把PHP看作一门后台语言，而是一门类似JS的脚本，页面表现级的语言，更多的是尝试使用一种软件来做后台，PHP做前台，尝试真正的B/S开发。你的看法呢？ 3.知识更新。PHP中的接口你懂了吗？反射你">
+<meta name="keywords" content="php">
+<meta property="og:type" content="article">
+<meta property="og:title" content="php进阶10问">
+<meta property="og:url" content="https://tfan.net/2014/09/12/about-php/index.html">
+<meta property="og:site_name" content="无心阁">
+<meta property="og:description" content="1.首先看了PHP的源码API函数，对于许多口水仗的争论一笑而过，只是停留在脚本级别上的什么效率，安全。。。之争完全就是无稽之谈，没有深入理解API，所有的争论都是臆测和不科学的态度。你做了吗？ 2.不再把PHP看作一门后台语言，而是一门类似JS的脚本，页面表现级的语言，更多的是尝试使用一种软件来做后台，PHP做前台，尝试真正的B/S开发。你的看法呢？ 3.知识更新。PHP中的接口你懂了吗？反射你">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-03T12:15:49.568Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="php进阶10问">
+<meta name="twitter:description" content="1.首先看了PHP的源码API函数，对于许多口水仗的争论一笑而过，只是停留在脚本级别上的什么效率，安全。。。之争完全就是无稽之谈，没有深入理解API，所有的争论都是臆测和不科学的态度。你做了吗？ 2.不再把PHP看作一门后台语言，而是一门类似JS的脚本，页面表现级的语言，更多的是尝试使用一种软件来做后台，PHP做前台，尝试真正的B/S开发。你的看法呢？ 3.知识更新。PHP中的接口你懂了吗？反射你">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="https://tfan.net/2014/09/12/about-php/">
+
+  <title> php进阶10问 | 无心阁 </title>
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">无心阁</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">记录生活、技术中的二三事.</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                php进阶10问
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-09-12T12:04:00+08:00" content="2014-09-12">
+              2014-09-12
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2014/09/12/about-php/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2014/09/12/about-php/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>1.首先看了PHP的源码API函数，对于许多口水仗的争论一笑而过，只是停留在脚本级别上的什么效率，安全。。。之争完全就是无稽之谈，没有深入理解API，所有的争论都是臆测和不科学的态度。你做了吗？</p>
+<p>2.不再把PHP看作一门后台语言，而是一门类似JS的脚本，页面表现级的语言，更多的是尝试使用一种软件来做后台，PHP做前台，尝试真正的B/S开发。你的看法呢？</p>
+<p>3.知识更新。PHP中的接口你懂了吗？反射你听过吗？JS中的事件冒泡你懂了吗？原型链知道吗？一切函数都是对象，你能理解否？MYSQL里面的视图，存储过程你尝试过么有？</p>
+<p>4.扎实的学知识。你是不是离开了JQ框架就连个DOM操作的原生JS都不会写了？你是不是离开了DB类，就连个简单的查询都不会写了？你是不是离开了IDE，连个表格都画不出来？你是不是到现在多表查询，子查询都还不会？你是不是到现在就只知道索引是用来加快查询的？<br>你是不是到现在连个PHP5的稍微复杂点的OO类都还不会写？你会正则吗？你的E文水平咋样？</p>
+<p>5.扎实的算法基础。你知道选择排序，插入排序，冒泡排序，二分排序，希尔排序并且能写出来吗？你知道怎么遍历二叉树吗？知道霍夫曼吗？你知道图吗？你知道龙格-库塔，迭代，插值，雅戈尔，牛顿下山法吗？知道ZIP压缩原理吗？你是不是可爱到以为加减乘除加上循环判断就搞定了算法？你知道概率论，微积分，线性方程组在算法中是非常非常基础的吗？</p>
+<p>6.学习的主动性。你是不是自己的网站连个拿的出手的JS都没有写过？你网站的效果是不是都是你下载的JQ插件弄出来的？到现在都还没有看过JQ的代码？你现在的模板引擎是谁的？DB类是谁的？框架是谁的？你是不是一直都很鄙视重复造轮子的事情，就像中国现在，“拿来主义”，永远是MADE IN CHINA,而不是Created in China？</p>
+<p>7.广泛的基础。你会汇编吗？那C总该会点吧。。那C++呢，那简单的JAVA总该会吧。。。那。。那傻瓜化的VB,NET,PY。。。？什么，你只会PHP？其他啥都不会？JS总该会吧？啊，不会，只会用网上下来的JQ？你除了PHP还会点啥？那假如PHP垮台了或者你所在的公司不用PHP了你吃什么？如果老板让你学J2SE你怕不怕？</p>
+<p>8.你是不是就准备一辈子做个coder?你的知识如果让你传授给别人的话，能支撑三个月吗？三个月后你还能讲得出点其他的东西吗？</p>
+<p>9.你现在的水平和你刚开始学的时候进步了多少？你有过自己的作品吗？有多少代码是你自己写的？你认为是不是只要会写PHP代码就够了？这样的话一个初中生三个月后也就能达到你的水平了，你认为呢？你准备一直停留在这个水平吗？</p>
+<p>10.最后一问，你除了会写仅会的PHP代码，还会点其他的吗？你有把握做其他工作吗？你能养活自己老婆孩子吗？能给他们幸福吗？</p>
+<p>问我自己，也问所有PHPER。仅供参考。</p>
+<p>醒醒吧，雄起吧！最可爱的人！仅以此文激励自己永不放弃，奋发学习，激流勇进！！！！</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/php/" rel="tag">#php</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/09/09/带文件提交ajax/" rel="next" title="带文件提交ajax">
+                <i class="fa fa-chevron-left"></i> 带文件提交ajax
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/09/14/missing-mcrpyt-ext-in-ubuntu/" rel="prev" title="ubuntu下运行laravel提示缺少mcrypt扩展">
+                ubuntu下运行laravel提示缺少mcrypt扩展 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="https://ws3.sinaimg.cn/large/006tNbRwgy1fw6se4chokj30b40b4mxs.jpg" alt="Marlon Fan">
+          <p class="site-author-name" itemprop="name">Marlon Fan</p>
+          <p class="site-description motion-element" itemprop="description">WEB开发.狂热技术控.中二.屠龙少年.</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">85</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/marlonfan" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/345210624" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/marlonfan" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.instagram.com/marlon.fan/" target="_blank" title="Instagram">
+                  
+                    <i class="fa fa-fw fa-instagram"></i>
+                  
+                  Instagram
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2012 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Marlon Fan</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+    <script type="text/javascript">
+      var disqus_shortname = 'marlonfan';
+      var disqus_identifier = '2014/09/12/about-php/';
+      var disqus_title = "php进阶10问";
+      var disqus_url = 'https://tfan.net/2014/09/12/about-php/';
+
+      function run_disqus_script(disqus_script){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+
+      run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
+      
+    </script>
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
